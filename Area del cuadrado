@@ -1,0 +1,22 @@
+// Sumandos.cpp : Defines the entry point for the console application.
+// Autor Rodolfo Menacho
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h" //getch
+
+using namespace std;
+
+void main()
+{
+
+   float a,area;
+   // Pedir el primer lado  
+   cout<<"Ingrese el lado: ";
+   cin>>a;
+   area = a*a;//Proceso 
+   // Salida
+   cout<<"El area es: "<<area;
+   getch(); 
+
+}
