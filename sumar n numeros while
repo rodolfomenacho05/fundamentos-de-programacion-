@@ -1,0 +1,23 @@
+// rodolfo pasa todas sus materias.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include <iostream> 
+#include "conio.h"
+using namespace std;
+void main() 
+
+{ //ayuda sos no se programar ;-c 
+	
+	int i=1,num,n,suma=0;
+	cout<<"digite cuantos numeros va a sumar: ",
+	cin>>n;
+	while(i<=n)
+	{ cout<<"ingrese un numero: ";
+	  cin>>num;
+	  suma=suma+num; 
+	  i++;
+	  }
+	cout<<"la suma es: "<<suma;
+	getch();
+}
