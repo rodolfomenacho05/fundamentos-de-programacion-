@@ -1,0 +1,23 @@
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+void main()
+
+{  int n,digito,acum=0;  
+   cout<<"digite un numero: ";
+   cin>>n;
+   while(n>0){
+	    digito=n%10;
+		if(digito%2==0)
+        acum=acum+digito;
+	    n=n/10;
+	    
+   }
+   cout<<"la suma de digitos pares es: "<<endl;
+   cout<<acum;
+
+    getch();
+}
