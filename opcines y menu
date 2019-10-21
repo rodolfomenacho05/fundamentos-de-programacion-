@@ -49,7 +49,7 @@ void main()
 	   default :cout<<"Error"<<endl; 	
 		       break;
 	           }
-			   }while(op!=4);
+			   }while(op!=5);
                getch(); 	
 	}          
 
