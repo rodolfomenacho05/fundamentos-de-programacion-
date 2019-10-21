@@ -1,0 +1,77 @@
+// rodolfo.cpp : Defines the entry point for the console application.
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+using namespace std;
+//prototipos 
+float calculoperimetro(float r);
+float calculoarea(float r);
+float calculovolumen(float r);//en el prototipo y la declaracion
+float calculodiametro(float r);
+
+void main()
+{
+	float r, area;
+	int op;
+	do{
+	   cout<<"Ingresa el radio: ";
+	   cin>>r;
+	   //Presentar el menu
+	   cout<<"=======MENU======="<<endl;
+	   cout<<"1. Calcular el perimetro"<<endl;
+       cout<<"2. Calcular el area"<<endl;
+	   cout<<"3. Calcular el volumen"<<endl;
+	   cout<<"4. Calcular el diametro"<<endl;
+	   cout<<"5. Salir"<<endl;
+	   cout<<"Ingresar opcion(1..4)"<<endl;
+	   cin>>op;
+       //seleccionar opcion
+
+	   switch(op){
+	   case 1: area=calculoperimetro(r);
+		       cout<<area<<endl;
+			   break;
+	   case 2: area=calculoarea(r);
+		       cout<<area<<endl;
+			   break;
+	   case 3: area=calculovolumen(r);
+		       cout<<area<<endl;
+			   break;
+       case 4: area=calculodiametro(r);
+		       cout<<area<<endl;
+			   break;
+	   case 5: cout<<"Salir"<<endl;
+		       break;
+	   
+	   default :cout<<"Error"<<endl; 	
+		       break;
+	           }
+			   }while(op!=4);
+               getch(); 	
+	}          
+
+float calculoperimetro(float r)
+{          
+		       return 2*3.141516*r;
+}          
+float calculoarea(float r)
+{          
+	           float aux;				
+	           aux=2*3.141516*r*r;
+	           return aux; 
+}
+
+float calculovolumen(float r)
+{
+	           float V=(4/3)*3.141516*r*r*r; // Declara y retorna
+	           return V;
+}
+float calculodiametro(float r)
+{ 
+	           float diametro;
+		       diametro=r*2;
+			   return diametro;
+}
