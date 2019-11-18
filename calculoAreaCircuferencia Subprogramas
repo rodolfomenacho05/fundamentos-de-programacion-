@@ -1,0 +1,30 @@
+// rms.cpp : Defines the entry point for the console application.
+
+
+#include "stdafx.h"
+#include <iostream>
+#include "conio.h"
+
+
+using namespace std;
+float calculoArea(float r);
+
+
+
+int main()
+{ 
+   float r,area;
+   cout<<"Ingrese el radio";
+   cin>>r;
+   area=calculoArea(r);
+   cout<<"El area de una circuferencia es: "<<area;
+   getch();
+}
+
+float calculoArea(float r)
+{
+   float aux;
+   aux=3.1416*r*r;
+   return aux;
+
+}
