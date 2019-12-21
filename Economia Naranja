@@ -1,0 +1,291 @@
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "stdlib.h"
+#include <string>
+#include <vector>
+#include <fstream>
+#include <string.h>
+
+#define MAX 999999
+#define N 100
+#define A 100
+#define S 100
+#define C 100
+using namespace std;
+
+void mostrar(string vec[], int t);
+void cargar(string vec[], int t);
+void cTrabajadores(string vec[], int t);
+void nuevoreg(string vec[], int j);
+void Triangulo(float x);
+void sumaN(float y);
+ofstream archivo;
+string nombre;
+string apellido;
+string spec;
+string carrera;
+int telefono;
+string vec[MAX];
+int t, op1, op2;
+float num, numer;
+
+int main()
+
+{
+    string usuario;
+    string clave;
+    vector<string> usuarios;
+	vector<string> claves;
+	//usuarios del vector
+	usuarios.push_back("luis");
+	usuarios.push_back("rodolfo");
+	usuarios.push_back("daniel");
+	//claves del vector
+	claves.push_back("admin");
+	claves.push_back("admin1");
+	claves.push_back("admin2");
+    int contador = 0;
+    bool ingresa = false;
+
+	int op, adm, inv, u;
+	
+	
+	
+	do 
+	{
+		cout<<"----------ING APP----------"<<endl;
+		cout<<"1.- Ingresar como cliente"<<endl;
+		cout<<"2.- Ingresar como admin"<<endl;
+		cout<<"3.- area del triangulo "<<endl;
+		cout<<"4.- Suma de n numeros"<<endl;
+		cout<<"5.- salir"<<endl;
+		cout<<"Elija una opcion [1-5]"<<endl;
+		cin>>op;
+		
+		switch (op)
+		{
+			case 1: cout<<"--------Bienvenido-------"<<endl;
+			mostrar (vec, t);
+			
+			break;
+			case 2: 
+				do
+	              {
+	                  system ("cls");
+	                  cout<<"\t\t\tLOGIN DE USUARIO"<<endl;
+	                  cout<<"\t\t\t----------------"<<endl;
+	                  cout<<"\n\t\tUsuario: ";
+	                  cin>>usuario;
+	                  cout<<"\t\tClave: ";
+	                   char caracter;
+	                   caracter = getch();
+	                   while (caracter != 13)
+	                    {
+							if(caracter !=8)
+							{
+							  clave.push_back(caracter);
+	                    	  cout<<"*";
+	                        }
+	                        else
+	                        {
+	                          if (clave.length() > 0)
+	                          {
+	                          	cout<<"\b \b";
+	                          	clave = clave.substr(0, clave.length() -1);
+	                          }
+	                        }
+	                        caracter = getch();
+	                    }
+	                     for (int i=0; i < usuarios.size(); i++)
+						 {
+						 	if (usuarios[i] == usuario && claves[i] == clave)
+						 	{
+						 		ingresa = true;
+								break;
+						 	}
+	                     }
+	                     if (!ingresa)
+	                     {
+	                     	 cout<<endl;
+							 cout<<"\n\t\tEl usuario o clave es incorrecto!"<<endl;
+	                     	 cin.get();
+	                     	 getch();
+							 contador++;
+	                     	
+	                     }
+	                  
+                 }while (ingresa == false && contador<3);
+                    if (ingresa == false)
+                    {
+    	              cout<<"Supero el limite de intentos."<<endl;
+    	              return main();
+                    }
+	                 else
+                    {
+    	              system("cls");
+		              cout<<"---------Bienvenido al modo administrador--------"<<endl;
+    	              cout<<endl;
+                    }
+        
+			
+			
+			        do
+			         {
+				       cout<<"--------- ING APP ---------"<<endl;
+				       cout<<"1.- Ver trabajadores disponibles"<<endl;
+				       cout<<"2.- Agregar nuevo trabajador"<<endl;
+				       cout<<"3.- Volver"<<endl;
+				       cin>>adm;
+				       switch(adm)
+				       {
+					   case 1: 
+					    mostrar(vec, t);
+					
+					    break;
+					   case 2: 
+					    cout<<"-----Agregar trabajador-----"<<endl;
+					    cTrabajadores(vec, t);
+					    cargar(vec, t);
+					    nuevoreg(vec, t);
+					    break;
+					   case 3: return main();break;
+					   default: cout<<"Numero fuera de rango"<<endl;break;
+				       }
+				
+			        }while (adm!=0);
+			case 3:
+				Triangulo(num);
+				break;
+ 			case 4:
+				sumaN(numer);
+				break; 
+			case 5: break;
+			default: cout<<"Numero fuera de rango"<<endl;break;
+	    }
+	}while(op!=0);
+}
+
+void cTrabajadores(string vec[], int tam)
+{
+	
+	cout<<"Cuantos trabajadores desea agregar: "<<endl;
+	cin>>t;
+
+	
+}
+void mostrar(string vec[], int tam)
+{
+	cout << endl<<"Trabajadores ordenados"<<endl;
+	for(int j=0;j<tam;j++)
+		cout<<"-----------------[ " <<j<< " ]----------------- "<<endl;
+}
+void cargar (string vec[], int tam)
+{
+	for (int j=0; j<tam; j++)
+	{
+		cout<<""<<j<<""<<endl;
+		cout<<endl;
+	}
+}
+void nuevoreg(string vec[], int j)
+{
+
+		do
+		{
+		cout<<"1.- Registrar \n2.- Salir"<<endl;
+		cin>>op1;
+		cin.ignore();
+		
+		if (op1 == 1)
+		 {
+		 if (!archivo.is_open())
+		 {
+		 	archivo.open ("trabajoprogra.txt", ios::out);
+		 }
+		 
+		   cout<<"Nombre: ";
+		   cin>>nombre;
+		   cout<<"Apellido: ";
+		   cin>>apellido;
+		   cout<<"Telefono: ";
+		   cin>>telefono;
+		   cout<<"Ingeniero | Licenciado | Doctor: ";
+		   cin>>carrera;
+		   cout<<"Especialidad: ";
+		   cin>>spec;
+		
+		     cout<<"1.- Guardar registros \n2.- Volver"<<endl;
+		     cin>>op2;
+	    
+		 if (op2 == 1)
+		   {
+		 	archivo<< "-------------[ " <<j<< " ]-------------"<<endl;
+			archivo<< "Nombre: " <<nombre<<endl;
+		 	archivo<< "Apellido: "<<apellido<<endl;
+		 	archivo<< "Telefono: "<<telefono<<endl;
+		 	archivo<< "Ingeniero - Licenciado - Doctor: "<<carrera<<endl;
+		 	archivo<< "Especialidad: "<<spec<<endl;
+		 	
+		 	system ("cls");
+		 	
+		 	cout<<"Registro guardado con exito...\n";
+		 	system ("pause");
+		 	system ("cls");
+		   }
+            archivo.close ();
+         }
+        }while (op1 !=2);
+}
+
+void Triangulo(float x)
+
+{
+	
+	float a,b,area;
+	    //pedir base
+		cout<<"ingrese la base: ";
+	    cin>>a;
+		//pedir altura
+		cout<<"ingrese la altura: ";
+		cin>>b;
+		area= (a*b)/2;//proceso
+		//salida
+		cout<<"el area del triangulo es: "<<area<<endl<<endl<<endl;
+	getch();
+
+}
+void sumaN(float y)
+{
+	int n, numero, mayor=0, menor=128;
+	float suma=0, promedio;
+	
+	cout<<"ingrese el numero de elementos: ";
+	cin>>n;
+	
+	for (int i=1; i<=n;i++)
+	{
+		cout<<"Ingrese un numero: ";
+		cin>>numero;
+		
+		if (mayor<numero)
+		mayor=numero;
+		if(menor>numero);
+		menor=numero;
+		suma= suma+numero;
+		
+	}
+	promedio= suma/n;
+	cout<<"El mayor es: "<<mayor<<endl;
+	cout<<"El menor es: "<<menor<<endl;
+	cout<<"El promedio es: "<<promedio<<endl;
+	
+	
+	
+	getch();
+
+
+
+
+
+}
