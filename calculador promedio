@@ -1,0 +1,26 @@
+#include<iostream>
+
+using namespace std;
+
+int main(){
+	
+	float practica, parciales, exfinal, nota_final= 0;
+	
+	cout<<"Digite su nota practica: ";cin>>practica;
+	cout<<"Digite su total parciales: ";cin>>parciales;
+	cout<<"Digite su nota de examen final: ";cin>>exfinal;
+	
+	practica *=0.20;
+    parciales *=0.40;
+	exfinal *=0.40;
+	
+	nota_final = practica + parciales + exfinal;
+	
+	cout<<"\nLa nota final es: "<<nota_final;
+	
+	
+	
+	
+	
+	return 0;
+}
